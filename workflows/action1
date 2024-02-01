@@ -1,0 +1,13 @@
+name: actions1
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Use Secret
+      run: |
+        echo "Using CLIENT_SECRET ${{ secrets.CLIENT_SECRET }}"
+      env:
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
